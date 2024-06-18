@@ -1,0 +1,3 @@
+/home/hailrake/media/code/komarusoft/2d-level-editor/build/CMakeFiles/2d-level-editor.dir
+/home/hailrake/media/code/komarusoft/2d-level-editor/build/CMakeFiles/edit_cache.dir
+/home/hailrake/media/code/komarusoft/2d-level-editor/build/CMakeFiles/rebuild_cache.dir
