@@ -57,6 +57,10 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
-    "level.h": "c"
+    "level.h": "c",
+    "charconv": "c",
+    "gui.h": "c",
+    "raylib.h": "c",
+    "raygui.h": "c"
   }
 }

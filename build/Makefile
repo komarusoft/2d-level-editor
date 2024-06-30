@@ -129,6 +129,30 @@ depend:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/build
 .PHONY : 2d-level-editor/fast
 
+src/gui.o: src/gui.c.o
+.PHONY : src/gui.o
+
+# target to build an object file
+src/gui.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/src/gui.c.o
+.PHONY : src/gui.c.o
+
+src/gui.i: src/gui.c.i
+.PHONY : src/gui.i
+
+# target to preprocess a source file
+src/gui.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/src/gui.c.i
+.PHONY : src/gui.c.i
+
+src/gui.s: src/gui.c.s
+.PHONY : src/gui.s
+
+# target to generate assembly for a file
+src/gui.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/src/gui.c.s
+.PHONY : src/gui.c.s
+
 src/level.o: src/level.c.o
 .PHONY : src/level.o
 
@@ -186,6 +210,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... 2d-level-editor"
+	@echo "... src/gui.o"
+	@echo "... src/gui.i"
+	@echo "... src/gui.s"
 	@echo "... src/level.o"
 	@echo "... src/level.i"
 	@echo "... src/level.s"

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "2d-level-editor"
   "2d-level-editor.pdb"
+  "CMakeFiles/2d-level-editor.dir/src/gui.c.o"
+  "CMakeFiles/2d-level-editor.dir/src/gui.c.o.d"
   "CMakeFiles/2d-level-editor.dir/src/level.c.o"
   "CMakeFiles/2d-level-editor.dir/src/level.c.o.d"
   "CMakeFiles/2d-level-editor.dir/src/main.c.o"
