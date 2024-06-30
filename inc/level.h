@@ -3,9 +3,9 @@
 
 #include <raylib.h>
 
-#define GRID_SIZE 20
+#define GRID_SIZE 32
 #define LEVEL_WIDTH 25
-#define LEVEL_HEIGHT 18
+#define LEVEL_HEIGHT 19
 typedef struct 
 {
     int data[LEVEL_HEIGHT][LEVEL_WIDTH];

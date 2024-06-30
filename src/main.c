@@ -1,10 +1,11 @@
 #include "../inc/level.h"
 #include "../inc/raygui.h"
 #include <raylib.h>
+#include <raymath.h>
 
 int main(void) {
-    const int screenWidth = 800;  // Ширина окна по умолчанию
-    const int screenHeight = 600;  // Высота окна по умолчанию
+    const int screenWidth = 800; 
+    const int screenHeight = 600;  
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);  
     InitWindow(screenWidth, screenHeight, "Level Editor");
 
@@ -41,10 +42,24 @@ int main(void) {
             if (camera.zoom > 3.0f) camera.zoom = 3.0f;
         }
 
+        //dragging middle mouse button 
+        static Vector2 dragStart = { 0 };
+        if(IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON)){
+            dragStart = GetMousePosition();
+        }
+        if(IsMouseButtonDown(MOUSE_MIDDLE_BUTTON)){
+            Vector2 dragEnd = GetMousePosition();
+            Vector2 dragDelta = Vector2Subtract(dragStart, dragEnd);
+
+            camera.target = Vector2Add(camera.target, Vector2Scale(dragDelta, 1.0f / camera.zoom));
+            dragStart = dragEnd;
+        }
+
         mousePosition = GetScreenToWorld2D(GetMousePosition(), camera);
 
+        //Place item to level grid
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            int x = (mousePosition.x - 120) / GRID_SIZE;
+            int x = mousePosition.x / GRID_SIZE;
             int y = mousePosition.y / GRID_SIZE;
             if (x >= 0 && x < LEVEL_WIDTH && y < LEVEL_HEIGHT) {
                 lvl.data[y][x] = eraseMode ? 0 : selectedTile;
@@ -75,7 +90,7 @@ int main(void) {
                 drawLevel(&lvl);
             EndMode2D();
 
-            DrawToolbar(&selectedTile, &eraseMode);
+            DrawToolbar(&selectedTile, &eraseMode, &mousePosition);
         EndDrawing();
     }
 

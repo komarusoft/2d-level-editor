@@ -538,7 +538,7 @@ typedef enum {
     BASE_COLOR_DISABLED,        // Control base color in STATE_DISABLED
     TEXT_COLOR_DISABLED,        // Control text color in STATE_DISABLED
     BORDER_WIDTH,               // Control border size, 0 for no border
-    //TEXT_SIZE,                  // Control text size (glyphs max height) -> GLOBAL for all controls
+    SIZE_TEXT,                  // Control text size (glyphs max height) -> GLOBAL for all controls
     //TEXT_SPACING,               // Control text spacing between glyphs -> GLOBAL for all controls
     //TEXT_LINE_SPACING           // Control text spacing between lines -> GLOBAL for all controls
     TEXT_PADDING,               // Control text padding, not considering border
@@ -5731,9 +5731,10 @@ static int GetCodepointNext(const char *text, int *codepointSize)
 
 #endif      // RAYGUI_IMPLEMENTATION
 
-#pragma region our gui function
+#pragma region our gui function and defines
+#define FONT_SIZE 20
 
-void DrawToolbar(int *selectedTile, bool *eraseMode);
+void DrawToolbar(int *selectedTile, bool *eraseMode, Vector2 *mousePosition);
 
 #pragma endregion
 
