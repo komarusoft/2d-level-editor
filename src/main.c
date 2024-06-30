@@ -5,7 +5,7 @@
 int main(void) {
     const int screenWidth = 800;  // Ширина окна по умолчанию
     const int screenHeight = 600;  // Высота окна по умолчанию
-
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE);  
     InitWindow(screenWidth, screenHeight, "Level Editor");
 
     level lvl = { 0 };
@@ -22,10 +22,24 @@ int main(void) {
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
+        if (IsWindowResized()) {
+            int newScreenWidth = GetScreenWidth();
+            int newScreenHeight = GetScreenHeight();
+            SetWindowSize(newScreenWidth, newScreenHeight);
+            camera.offset = (Vector2){ newScreenWidth/2.0f, newScreenHeight/2.0f };
+        }
+
         if (IsKeyDown(KEY_RIGHT)) camera.target.x += 5;
         if (IsKeyDown(KEY_LEFT)) camera.target.x -= 5;
         if (IsKeyDown(KEY_UP)) camera.target.y -= 5;
         if (IsKeyDown(KEY_DOWN)) camera.target.y += 5;
+
+        float wheel = GetMouseWheelMove();
+        if(wheel != 0){
+            camera.zoom += wheel * 0.1f;
+            if (camera.zoom < 0.1f) camera.zoom = 0.1f;
+            if (camera.zoom > 3.0f) camera.zoom = 3.0f;
+        }
 
         mousePosition = GetScreenToWorld2D(GetMousePosition(), camera);
 
