@@ -2,6 +2,7 @@
 #include "../inc/raygui.h"
 #include <raylib.h>
 #include <raymath.h>
+#include <stdio.h>
 
 int main(void) {
     const int screenWidth = 800; 
@@ -14,7 +15,6 @@ int main(void) {
     int selectedTile = 1;
     bool eraseMode = false;
     
-    // Камера для управления прокруткой
     Camera2D camera = { 0 };
     camera.target = (Vector2){ 0, 0 };
     camera.offset = (Vector2){ 0, 0 };
@@ -66,9 +66,9 @@ int main(void) {
             }
         }
 
-        // if (IsKeyPressed(KEY_S)) {
-        //     saveLevel(&lvl, "levels/level1.lvl");
-        // }
+        if (IsKeyPressed(KEY_S)) {
+            saveLevel(&lvl, "lvl.json");
+        }
 
         // if (IsKeyPressed(KEY_L)) {
         //     loadLevel(&lvl, "levels/level1.lvl");
