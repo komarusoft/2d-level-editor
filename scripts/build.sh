@@ -4,9 +4,9 @@ if [ -d "build" ]; then
     rm -rf build
 fi
 
-# if [ ! -d "json" ]; then
-#     git clone https://github.com/nlohmann/json/
-# fi
+if [ ! -d "cJSON" ]; then
+    git clone https://github.com/DaveGamble/cJSON.git
+fi
 
 mkdir build
 

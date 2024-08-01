@@ -1,5 +1,6 @@
 #ifndef LEVEL_H
 #define LEVEL_H
+#include "../cJSON/cJSON.h"
 
 #include <raylib.h>
 

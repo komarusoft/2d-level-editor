@@ -67,7 +67,7 @@ int main(void) {
         }
 
         if (IsKeyPressed(KEY_S)) {
-            saveLevel(&lvl, "lvl.json");
+            // saveLevel(&lvl, "lvl.json");
         }
 
         // if (IsKeyPressed(KEY_L)) {

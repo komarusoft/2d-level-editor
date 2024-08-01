@@ -18,3 +18,7 @@ void drawLevel(level *level){
         }
     }
 }
+
+void saveLevel(level *level, const char *filename){
+    //TODO: build lib for json, or another serialize method
+}

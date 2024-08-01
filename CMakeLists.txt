@@ -22,7 +22,11 @@ set(SOURCE
     src/main.c
     src/level.c
     src/gui.c
+    cJSON/cJSON.c
     )
+
+include_directories(cJSON)
+
 add_executable(2d-level-editor ${SOURCE})
 
 target_link_libraries(2d-level-editor PRIVATE raylib)
