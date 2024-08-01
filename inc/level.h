@@ -1,7 +1,9 @@
 #ifndef LEVEL_H
 #define LEVEL_H
-#include "../cJSON/cJSON.h"
 
+#include "../cJSON/cJSON.h"
+#include <stdlib.h>
+#include <stdio.h>
 #include <raylib.h>
 
 #define GRID_SIZE 32

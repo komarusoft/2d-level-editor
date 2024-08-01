@@ -19,6 +19,22 @@ void drawLevel(level *level){
     }
 }
 
-void saveLevel(level *level, const char *filename){
-    //TODO: build lib for json, or another serialize method
+void saveLevel(level *level, const char *filename) {
+    FILE *file = fopen(filename, "a");
+    if (file == NULL) {
+        perror("Ошибка открытия файла");
+        return;
+    }
+
+    char str[50]; 
+    for (int x = 0; x < LEVEL_WIDTH; x++) {
+        for (int y = 0; y < LEVEL_HEIGHT; y++) {
+            if (level->data[x][y] == 1) {
+                snprintf(str, sizeof(str), "[x=%d][y=%d] = 1\n", x + 1, y + 1); 
+                fprintf(file, "%s", str);
+            }
+        }
+    }
+    TraceLog(LOG_INFO, "saved");
+    fclose(file);
 }

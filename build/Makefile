@@ -129,6 +129,30 @@ depend:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/build
 .PHONY : 2d-level-editor/fast
 
+cJSON/cJSON.o: cJSON/cJSON.c.o
+.PHONY : cJSON/cJSON.o
+
+# target to build an object file
+cJSON/cJSON.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/cJSON/cJSON.c.o
+.PHONY : cJSON/cJSON.c.o
+
+cJSON/cJSON.i: cJSON/cJSON.c.i
+.PHONY : cJSON/cJSON.i
+
+# target to preprocess a source file
+cJSON/cJSON.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/cJSON/cJSON.c.i
+.PHONY : cJSON/cJSON.c.i
+
+cJSON/cJSON.s: cJSON/cJSON.c.s
+.PHONY : cJSON/cJSON.s
+
+# target to generate assembly for a file
+cJSON/cJSON.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/cJSON/cJSON.c.s
+.PHONY : cJSON/cJSON.c.s
+
 src/gui.o: src/gui.c.o
 .PHONY : src/gui.o
 
@@ -210,6 +234,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... 2d-level-editor"
+	@echo "... cJSON/cJSON.o"
+	@echo "... cJSON/cJSON.i"
+	@echo "... cJSON/cJSON.s"
 	@echo "... src/gui.o"
 	@echo "... src/gui.i"
 	@echo "... src/gui.s"
