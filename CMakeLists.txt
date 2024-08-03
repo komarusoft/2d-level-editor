@@ -22,6 +22,7 @@ set(SOURCE
     src/main.c
     src/level.c
     src/gui.c
+    src/toolchain.c
     cJSON/cJSON.c
     )
 

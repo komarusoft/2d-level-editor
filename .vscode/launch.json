@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/hailrake/media/code/komarusoft/2d-level-editor/src",
-      "program": "/home/hailrake/media/code/komarusoft/2d-level-editor/src/build/Debug/outDebug",
+      "cwd": "/home/hailrake/media/code/komarusoft/2d-level-editor/build",
+      "program": "/home/hailrake/media/code/komarusoft/2d-level-editor/build/2d-level-editor",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

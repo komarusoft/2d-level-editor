@@ -1,4 +1,5 @@
 #include "../inc/level.h"
+#include "../inc/toolchain.h"
 //TODO: add load and draw lvl
 //TODO: add save lvl to file
 void drawGrid(){
@@ -12,29 +13,41 @@ void drawGrid(){
 void drawLevel(level *level){
     for(int y = 0; y < LEVEL_HEIGHT; y++){
         for(int x = 0; x < LEVEL_WIDTH; x++){
-            if(level->data[y][x] == 1){
-                DrawRectangle(x * GRID_SIZE, y * GRID_SIZE, GRID_SIZE, GRID_SIZE, RED);
+            if(level->blocks[y][x].isBlockExist){
+                DrawRectangle(x * GRID_SIZE, y * GRID_SIZE, GRID_SIZE, GRID_SIZE, level->blocks[y][x].color);
             }
+            level->blocks[y][x].coordinates.x = x;
+            level->blocks[y][x].coordinates.y = y;            
         }
     }
 }
 
 void saveLevel(level *level, const char *filename) {
-    FILE *file = fopen(filename, "a");
+    // cJSON *json
+    cJSON *jsonArray = cJSON_CreateArray();
+    
+    for (int x = 0; x < LEVEL_WIDTH; x++) {
+        for (int y = 0; y < LEVEL_HEIGHT; y++) {
+            cJSON *jsonBlock = serializeLevelBlockToJson(&level->blocks[y][x]);
+            cJSON_AddItemToArray(jsonArray, jsonBlock);
+        }
+    }
+
+    char* jsonString = cJSON_Print(jsonArray);
+
+    FILE *file = fopen(filename, "w");
     if (file == NULL) {
-        perror("Ошибка открытия файла");
+        perror("Error");
+        cJSON_Delete(jsonArray);
+        free(jsonString);
         return;
     }
 
-    char str[50]; 
-    for (int x = 0; x < LEVEL_WIDTH; x++) {
-        for (int y = 0; y < LEVEL_HEIGHT; y++) {
-            if (level->data[x][y] == 1) {
-                snprintf(str, sizeof(str), "[x=%d][y=%d] = 1\n", x + 1, y + 1); 
-                fprintf(file, "%s", str);
-            }
-        }
-    }
-    TraceLog(LOG_INFO, "saved");
+    fprintf(file, "%s", jsonString);
+
     fclose(file);
+    cJSON_Delete(jsonArray);
+    free(jsonString);
+
+    TraceLog(LOG_INFO, "Level saved successfully");
 }

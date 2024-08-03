@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/2d-level-editor.dir/src/level.c.o.d"
   "CMakeFiles/2d-level-editor.dir/src/main.c.o"
   "CMakeFiles/2d-level-editor.dir/src/main.c.o.d"
+  "CMakeFiles/2d-level-editor.dir/src/toolchain.c.o"
+  "CMakeFiles/2d-level-editor.dir/src/toolchain.c.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

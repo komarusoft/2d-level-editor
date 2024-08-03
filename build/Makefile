@@ -225,6 +225,30 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/toolchain.o: src/toolchain.c.o
+.PHONY : src/toolchain.o
+
+# target to build an object file
+src/toolchain.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/src/toolchain.c.o
+.PHONY : src/toolchain.c.o
+
+src/toolchain.i: src/toolchain.c.i
+.PHONY : src/toolchain.i
+
+# target to preprocess a source file
+src/toolchain.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/src/toolchain.c.i
+.PHONY : src/toolchain.c.i
+
+src/toolchain.s: src/toolchain.c.s
+.PHONY : src/toolchain.s
+
+# target to generate assembly for a file
+src/toolchain.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/2d-level-editor.dir/build.make CMakeFiles/2d-level-editor.dir/src/toolchain.c.s
+.PHONY : src/toolchain.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -246,6 +270,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/toolchain.o"
+	@echo "... src/toolchain.i"
+	@echo "... src/toolchain.s"
 .PHONY : help
 
 

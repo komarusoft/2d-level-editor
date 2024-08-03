@@ -1,7 +1,6 @@
 #define RAYGUI_IMPLEMENTATION
 #include "../inc/raygui.h"
 
-//TODO: дописати
 void DrawToolbar(int *selectedTile, bool *eraseMode, Vector2 *mousePosition) {
     const int toolbarWidth = 120;
     const int screenHeight = GetScreenHeight();

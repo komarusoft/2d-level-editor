@@ -62,25 +62,36 @@ int main(void) {
             int x = mousePosition.x / GRID_SIZE;
             int y = mousePosition.y / GRID_SIZE;
             if (x >= 0 && x < LEVEL_WIDTH && y < LEVEL_HEIGHT) {
-                lvl.data[y][x] = eraseMode ? 0 : selectedTile;
+                if(eraseMode){
+                    lvl.blocks[y][x].isBlockExist = false;
+                    lvl.blocks[y][x].color = (Color){ 0,0,0,0 };
+                    lvl.blocks[y][x].texturePath = NULL;
+                    lvl.blocks[y][x].isBlockHaveCollider = false;
+                }
+                if(!eraseMode){
+                    lvl.blocks[y][x].isBlockExist = true;
+                    lvl.blocks[y][x].color = RED;
+                    lvl.blocks[y][x].texturePath = NULL;
+                    lvl.blocks[y][x].isBlockHaveCollider = false;
+                }
             }
         }
 
         if (IsKeyPressed(KEY_S) && (IsKeyDown(KEY_LEFT_CONTROL) || IsKeyDown(KEY_RIGHT_CONTROL))) {
-            saveLevel(&lvl, "lvl.txt");
+            saveLevel(&lvl, "lvl.json");
         }
 
         // if (IsKeyPressed(KEY_L)) {
         //     loadLevel(&lvl, "levels/level1.lvl");
         // }
 
-        if (IsKeyPressed(KEY_C)) {
-            for (int y = 0; y < LEVEL_HEIGHT; y++) {
-                for (int x = 0; x < LEVEL_WIDTH; x++) {
-                    lvl.data[y][x] = 0;
-                }
-            }
-        }
+        // if (IsKeyPressed(KEY_C)) {
+        //     for (int y = 0; y < LEVEL_HEIGHT; y++) {
+        //         for (int x = 0; x < LEVEL_WIDTH; x++) {
+        //             // lvl.data[y][x].isBlockHaveCollider = ;
+        //         }
+        //     }
+        // }
 
         BeginDrawing();
             ClearBackground(DARKGRAY);
